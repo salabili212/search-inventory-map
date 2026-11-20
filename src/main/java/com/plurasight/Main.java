@@ -2,23 +2,28 @@ package com.plurasight;
 
 import java.io.*;
 import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         //Declear a HashMap to store the details in it
-        HashMap<String, SearchMapInventory>  inventory = new HashMap<>();
+        HashMap<String, SearchMapInventory> inventory = new HashMap<>();
 
         inventory = loadInventory();
 
-        for (SearchMapInventory productClass : inventory.values()){
-            System.out.println(productClass);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("What item # are you interested in? ");
+        String productId = scanner.nextLine().trim();
+
+        SearchMapInventory productClass = inventory.get(productId);
+
+        if (productClass == null) {
+            System.out.println("We don't carry that product.");
+        } else {
+            productClass.display();
         }
-
     }
-
-
 
     //this hash method it store a product in hashMap and return that hashmap
     public static HashMap<String,SearchMapInventory> loadInventory(){

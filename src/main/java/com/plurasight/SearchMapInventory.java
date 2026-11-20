@@ -20,8 +20,8 @@ public class SearchMapInventory {
 
     //Display the products
     public void display(){
-
-        System.out.printf("ID:%d, Model:%s, Price:%f.2\n", this.vehicleId, this.makeModel, this.price);
+        System.out.printf("ID:%d, Model:%s, Price:$%.2f%n",
+                this.vehicleId, this.makeModel, this.price);
     }
 
     public String toString() {
